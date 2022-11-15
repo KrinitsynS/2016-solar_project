@@ -21,8 +21,12 @@ def read_space_objects_data_from_file(input_filename):
             object_type = line.split()[0].lower()
             if object_type == "star":  # FIXME: do the same for planet
                 star = Star()
-                parse_star_parameters(line, star)
+                parse_star_parameters(line.split()[1::], star)
                 objects.append(star)
+            elif object_type == "planet":
+                planet = Planet()
+                parse_planet_parameters(line.split()[1::], planet)
+                objects.append(planet)
             else:
                 print("Unknown space object")
 
@@ -43,7 +47,13 @@ def parse_star_parameters(line, star):
     **line** — строка с описание звезды.
     **star** — объект звезды.
     """
-
+    star.r = line[0]
+    star.color = line[1]
+    star.m = line[2]
+    star.x = line[3]
+    star.y = line[4]
+    star.Vx = line[5]
+    star.Vy = line[6]
     pass  # FIXME: not done yet
 
 def parse_planet_parameters(line, planet):
@@ -61,6 +71,13 @@ def parse_planet_parameters(line, planet):
     **line** — строка с описание планеты.
     **planet** — объект планеты.
     """
+    planet.r = line[0]
+    planet.color = line[1]
+    planet.m = line[2]
+    planet.x = line[3]
+    planet.y = line[4]
+    planet.Vx = line[5]
+    planet.Vy = line[6]
     pass  # FIXME: not done yet...
 
 
@@ -81,6 +98,6 @@ def write_space_objects_data_to_file(output_filename, space_objects):
             # FIXME: should store real values
 
 # FIXME: хорошо бы ещё сделать функцию, сохранающую статистику в заданный файл...
-
+# хорошо бы.
 if __name__ == "__main__":
     print("This module is not for direct call!")
