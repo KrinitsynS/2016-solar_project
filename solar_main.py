@@ -24,7 +24,7 @@ time_step = None
 
 space_objects = []
 """Список космических объектов."""
-
+'''EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE'''
 
 def execution():
     """Функция исполнения -- выполняется циклически, вызывая обработку всех небесных тел,
